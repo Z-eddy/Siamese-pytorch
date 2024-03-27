@@ -17,7 +17,7 @@ class Siamese(object):
         #   使用自己训练好的模型进行预测一定要修改model_path
         #   model_path指向logs文件夹下的权值文件
         #-----------------------------------------------------#
-        "model_path"        : 'model_data/Omniglot_vgg.pth',
+        "model_path"        : 'model_data/word_compare.pth',
         #-----------------------------------------------------#
         #   输入图片的大小。
         #-----------------------------------------------------#
@@ -125,11 +125,11 @@ class Siamese(object):
             output = self.net([photo_1, photo_2])[0]
             output = torch.nn.Sigmoid()(output)
 
-        plt.subplot(1, 2, 1)
-        plt.imshow(np.array(image_1))
-
-        plt.subplot(1, 2, 2)
-        plt.imshow(np.array(image_2))
-        plt.text(-12, -12, 'Similarity:%.3f' % output, ha='center', va= 'bottom',fontsize=11)
-        plt.show()
+        # plt.subplot(1, 2, 1)
+        # plt.imshow(np.array(image_1))
+        #
+        # plt.subplot(1, 2, 2)
+        # plt.imshow(np.array(image_2))
+        # plt.text(-12, -12, 'Similarity:%.3f' % output, ha='center', va= 'bottom',fontsize=11)
+        # plt.show()
         return output
