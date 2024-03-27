@@ -68,6 +68,6 @@ def VGG16(pretrained, in_channels, **kwargs):
     model = VGG(make_layers(cfgs["D"], batch_norm=False, in_channels=in_channels), **kwargs)
     if pretrained:
         # state_dict = load_state_dict_from_url("https://download.pytorch.org/models/vgg16-397923af.pth", model_dir="./model_data")
-        state_dict = torch.load("./vgg16.pth")
+        state_dict = torch.load("./model_data/word_compare.pth")
         model.load_state_dict(state_dict)
     return model
